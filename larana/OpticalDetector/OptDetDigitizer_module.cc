@@ -216,7 +216,7 @@ namespace opdet {
     optdata::ChannelDataGroup rawWFGroup_LowGain(optdata::kLowGain);
     // Reserve entries equal to # of channels
     // auto const nOpChannels = fWireReadoutGeom->NOpChannels();
-    auto const nOpChannels = art::ServiceHandle<geo::Geometry>()->NOpDets();
+    auto const nOpChannels = art::ServiceHandle<geo::GeometryCore>()->NOpDets();
     rawWFGroup_HighGain.reserve(nOpChannels);
     rawWFGroup_LowGain.reserve(nOpChannels);
 
