@@ -323,8 +323,10 @@ namespace opdet {
       fSignals_vis.clear();
       fSignals_vis.resize(maxNtracks);
       for (size_t itrack = 0; itrack != maxNtracks; itrack++) {
-        fSignals_vuv[itrack].resize(wireReadoutGeom.NOpChannels());
-        fSignals_vis[itrack].resize(wireReadoutGeom.NOpChannels());
+        // fSignals_vuv[itrack].resize(wireReadoutGeom.NOpChannels());
+        // fSignals_vis[itrack].resize(wireReadoutGeom.NOpChannels());
+        fSignals_vuv[itrack].resize(art::ServiceHandle<geo::Geometry>()->NOpDets());
+        fSignals_vis[itrack].resize(art::ServiceHandle<geo::Geometry>()->NOpDets());
       }
       totalEnergy_track.resize(maxNtracks, 0.);
       //-------------------------stimation of dedx per trackID----------------------
@@ -387,7 +389,8 @@ namespace opdet {
               //resetting the signalt to save in the analysis tree per event
               const int maxNtracks = 1000;
               for (size_t itrack = 0; itrack != maxNtracks; itrack++) {
-                for (size_t pmt_i = 0; pmt_i != wireReadoutGeom.NOpChannels(); pmt_i++) {
+                // for (size_t pmt_i = 0; pmt_i != wireReadoutGeom.NOpChannels(); pmt_i++) {
+                for (size_t pmt_i = 0; pmt_i != art::ServiceHandle<geo::Geometry>()->NOpDets(); pmt_i++) {
                   fSignals_vuv[itrack][pmt_i].clear();
                   fSignals_vis[itrack][pmt_i].clear();
                 }
