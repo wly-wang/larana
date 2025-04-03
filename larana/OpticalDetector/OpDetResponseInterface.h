@@ -69,8 +69,8 @@ namespace opdet {
   {
     // By default return the number of detector channels
     auto const& wireReadoutGeom = art::ServiceHandle<geo::WireReadout const>()->Get();
-    // return wireReadoutGeom.NOpChannels()
-    return art::ServiceHandle<geo::Geometry>()->NOpDets();
+    return wireReadoutGeom.NOpChannels()
+    //return art::ServiceHandle<geo::GeometryCore>()->NOpDets();
   }
 
   //-------------------------------------------------------------------------------------------------------------
