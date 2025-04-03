@@ -305,7 +305,7 @@ namespace opdet {
     art::ServiceHandle<opdet::OpDetResponseInterface const> odresponse;
 
     // get the geometry to be able to figure out signal types and chan -> plane mappings
-    auto const& wireReadoutGeom = art::ServiceHandle<geo::WireReadout const>()->Get();
+    // auto const& wireReadoutGeom = art::ServiceHandle<geo::WireReadout const>()->Get();
 
     // GEANT4 info on the particles (only used if making light analysis tree)
     std::vector<simb::MCParticle> const* mcpartVec = nullptr;
